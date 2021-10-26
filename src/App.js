@@ -1,20 +1,38 @@
-import { useState } from 'react';
-import Dropdown from './components/Dropdown/Dropdown';
-import GlobalStyle, { Container, Header, Row } from './globalStyles';
+import GlobalStyle, { Section } from './globalStyles';
+import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+const data = [
+	{
+		id: 'about',
+		color: '#fe01b3',
+	},
+	{
+		id: 'services',
+		color: '#daff00',
+	},
+	{
+		id: 'products',
+		color: '#001bff',
+	},
+	{
+		id: 'pricing',
+		color: '#ff0005',
+	},
+];
 
 function App() {
-	const [currency, setCurrency] = useState('USD');
-
 	return (
-		<>
-			<GlobalStyle />
-			<Container>
-				<Header color="red">itSatori Dropdown Tutorial</Header>
-				<Row justify="center" align="center" mt="4rem">
-					<Dropdown currency={currency} setCurrency={setCurrency} />
-				</Row>
-			</Container>
-		</>
+		<Router>
+			<GlobalStyle></GlobalStyle>
+			<Navbar />
+			<Section>HERO</Section>
+			{data.map((el, index) => (
+				<Section id={el.id} key={index} background={el.color}>
+					{el.id.toLocaleUpperCase()}
+				</Section>
+			))}
+		</Router>
 	);
 }
 

@@ -40,7 +40,6 @@ const Navbar = () => {
 									spy={true}
 									duration={500}
 									smooth={true}
-									exact="true"
 									offset={-80}
 									to={navItem.toLowerCase()}
 									onClick={() => setShow(false)}

@@ -1,17 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap');
  *{
    margin: 0;
    padding:0;
    box-sizing: border-box;
-	 font-family: 'Roboto', sans-serif;
+	 font-family: 'Montserrat', sans-serif;
  }
 
- body {
-	 background-color: #ffe357;
- }
+
 `;
 
 export const Container = styled.div`
@@ -20,13 +18,14 @@ export const Container = styled.div`
 	margin: ${({ margin }) => (margin ? margin : '0 auto')};
 	padding: ${({ padding }) => (padding ? padding : '0 15px')};
 `;
+
 export const Header = styled.h1`
 	color: ${({ color }) => (color ? color : 'blue')};
 	text-align: center;
 	margin: 2rem;
 `;
 
-const DEFAULT_DIV = styled.div`
+export const DEFAULT_DIV = styled.div`
 	padding: ${({ padding }) => (padding ? padding : '')};
 	padding-bottom: ${({ pb }) => (pb ? pb : '')};
 	padding-top: ${({ pt }) => (pt ? pt : '')};
@@ -41,6 +40,14 @@ const DEFAULT_DIV = styled.div`
 	max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : '')};
 	min-height: ${({ minHeight }) => (minHeight ? minHeight : '')};
 	background-color: ${({ background }) => (background ? background : '')};
+`;
+
+export const Section = styled(DEFAULT_DIV)`
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 6rem;
 `;
 
 export const Row = styled(DEFAULT_DIV)`
@@ -74,6 +81,35 @@ export const Text = styled.span`
 	max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : '')};
 	min-height: ${({ minHeight }) => (minHeight ? minHeight : '')};
 	color: ${({ color }) => (color ? color : '')};
+`;
+
+export const Button = styled.button`
+	padding: ${({ padding }) => (padding ? padding : '')};
+	padding-bottom: ${({ pb }) => (pb ? pb : '')};
+	padding-top: ${({ pt }) => (pt ? pt : '')};
+	margin: ${({ margin }) => (margin ? margin : '')};
+	margin-bottom: ${({ mb }) => (mb ? mb : '')};
+	margin-top: ${({ mt }) => (mt ? mt : '')};
+	position: ${({ position }) => (position ? position : '')};
+	width: ${({ width }) => (width ? width : '')};
+	min-width: ${({ minWidth }) => (minWidth ? minWidth : '')};
+	max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : '')};
+	height: ${({ height }) => (height ? height : '')};
+	max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : '')};
+	min-height: ${({ minHeight }) => (minHeight ? minHeight : '')};
+	border-radius: ${({ borderRadius }) => (borderRadius ? borderRadius : '5px')};
+	background: #001bff;
+	color: #fff;
+	font-size: ${({ size }) => (size ? size : '16px')};
+	outline: none;
+	border: none;
+	cursor: pointer;
+	white-space: nowrap;
+
+	&:hover {
+		transition: all 0.3s ease-out;
+		background-color: #0a1573;
+	}
 `;
 
 export default GlobalStyle;
